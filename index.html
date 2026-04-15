@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f2f3f7">
+  <title>Секундомер</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="top-bar">
+      <h1>Секундомер</h1>
+      <div class="menu-wrap">
+        <button id="menuButton" class="menu-btn" aria-label="Открыть меню" title="Меню">⋮</button>
+        <div id="popupMenu" class="popup-menu" hidden>
+          <button id="openSettings" class="popup-item" type="button">Настройки</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="display-wrap" aria-live="polite">
+      <div id="timeDisplay" class="time-display">00:00,00</div>
+    </section>
+
+    <section class="controls">
+      <button id="resetButton" class="btn btn-secondary" disabled>Сбросить</button>
+      <button id="mainButton" class="btn btn-primary">Начать</button>
+    </section>
+  </main>
+
+  <dialog id="settingsDialog" class="settings-dialog">
+    <form id="settingsForm" method="dialog" class="settings-form">
+      <h2>Настройки</h2>
+      <p>Числа для подмены сотых при каждом «Стоп», через запятую (0-99).</p>
+      <input id="sequenceInput" type="text" inputmode="numeric" placeholder="18,26,15" autocomplete="off" required>
+      <p class="hint">Текущая последовательность: <span id="currentSequence">18,26,15</span></p>
+      <p id="settingsError" class="error" role="alert"></p>
+      <div class="settings-actions">
+        <button type="button" id="cancelSettings" class="btn btn-secondary">Отмена</button>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
