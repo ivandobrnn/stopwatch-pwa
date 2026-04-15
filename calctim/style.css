@@ -41,52 +41,8 @@ body {
 .app {
   min-height: 100dvh;
   display: grid;
-  grid-template-rows: auto 1fr auto auto auto;
+  grid-template-rows: 1fr auto auto auto;
   padding: max(8px, env(safe-area-inset-top)) 14px max(8px, env(safe-area-inset-bottom));
-}
-
-.top-row {
-  min-height: 34px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  position: relative;
-}
-
-.menu-button {
-  border: 0;
-  background: transparent;
-  color: #d8dae0;
-  font-size: 1.85rem;
-  line-height: 1;
-  padding: 0 4px;
-}
-
-.popup-menu {
-  position: absolute;
-  right: 0;
-  top: 100%;
-  background: #15161d;
-  border: 1px solid #242732;
-  border-radius: 12px;
-  min-width: 184px;
-  padding: 6px;
-  z-index: 5;
-}
-
-.popup-item {
-  border: 0;
-  width: 100%;
-  text-align: left;
-  padding: 10px 12px;
-  border-radius: 8px;
-  color: #f0f2f8;
-  background: transparent;
-  font-size: 0.95rem;
-}
-
-.popup-item:hover {
-  background: #222632;
 }
 
 .display-wrap {
@@ -202,6 +158,11 @@ body {
   line-height: 1.1;
   padding: 7px 6px;
   border-radius: 17px;
+}
+
+.nav-button {
+  border: 0;
+  background: transparent;
 }
 
 .nav-item svg {

@@ -10,13 +10,6 @@
 </head>
 <body>
   <main class="app">
-    <header class="top-row">
-      <button id="menuButton" class="menu-button" aria-label="Меню">⋯</button>
-      <div id="popupMenu" class="popup-menu" hidden>
-        <button id="openSettings" class="popup-item" type="button">Настройки сотых</button>
-      </div>
-    </header>
-
     <section class="display-wrap" aria-live="polite">
       <div id="timeDisplay" class="time-display">00:00,00</div>
     </section>
@@ -33,10 +26,10 @@
 
     <nav class="bottom-nav" aria-label="Разделы">
       <div class="nav-pill">
-        <div class="nav-item">
+        <button id="worldClockButton" class="nav-item nav-button" type="button" title="Открыть настройки сотых">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20Zm8 9h-3.1a14 14 0 00-1.2-5A8 8 0 0120 11Zm-8-7c1 0 2.4 1.6 3.2 4H8.8C9.6 5.6 11 4 12 4Zm-3.6 6h7.2c.2 1 .4 2 .4 3s-.2 2-.4 3H8.4c-.2-1-.4-2-.4-3s.2-2 .4-3Zm-4.4 3h3.1c0-1.8.4-3.5 1.2-5A8 8 0 004 13Zm4.3 7A14 14 0 017.1 13H4a8 8 0 004.3 7Zm7.3 0a8 8 0 004.3-7h-3.1a14 14 0 01-1.2 7ZM12 20c-1 0-2.4-1.6-3.2-4h6.4c-.8 2.4-2.2 4-3.2 4Z"/></svg>
           <span>Мировые часы</span>
-        </div>
+        </button>
         <div class="nav-item">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2a1 1 0 000 2h1l-1 2.2A8 8 0 004 12a8 8 0 1016 0 8 8 0 00-3-6.3L16 4h1a1 1 0 100-2H7Zm5 6a1 1 0 011 1v3.6l2 1.2a1 1 0 01-1 1.8l-2.5-1.5a1 1 0 01-.5-.9V9a1 1 0 011-1Z"/></svg>
           <span>Будильники</span>

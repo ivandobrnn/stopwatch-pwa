@@ -5,9 +5,7 @@ const timeDisplay = document.getElementById("timeDisplay");
 const mainButton = document.getElementById("mainButton");
 const leftButton = document.getElementById("leftButton");
 const lapsList = document.getElementById("lapsList");
-const menuButton = document.getElementById("menuButton");
-const popupMenu = document.getElementById("popupMenu");
-const openSettings = document.getElementById("openSettings");
+const worldClockButton = document.getElementById("worldClockButton");
 const settingsDialog = document.getElementById("settingsDialog");
 const settingsForm = document.getElementById("settingsForm");
 const sequenceInput = document.getElementById("sequenceInput");
@@ -50,12 +48,7 @@ leftButton.addEventListener("click", () => {
   }
 });
 
-menuButton.addEventListener("click", () => {
-  popupMenu.hidden = !popupMenu.hidden;
-});
-
-openSettings.addEventListener("click", () => {
-  popupMenu.hidden = true;
+worldClockButton.addEventListener("click", () => {
   settingsError.textContent = "";
   sequenceInput.value = sequence.join(",");
   settingsDialog.showModal();
@@ -83,13 +76,6 @@ settingsForm.addEventListener("submit", (event) => {
   if (stopped) {
     frozenHundredths = sequence[0];
     renderTime();
-  }
-});
-
-document.addEventListener("click", (event) => {
-  const clickedMenu = event.target.closest(".top-row");
-  if (!clickedMenu) {
-    popupMenu.hidden = true;
   }
 });
 
