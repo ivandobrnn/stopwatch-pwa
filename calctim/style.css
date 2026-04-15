@@ -28,7 +28,10 @@ a,
 html,
 body {
   margin: 0;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
   background: var(--bg);
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -36,19 +39,27 @@ body {
 
 body {
   display: grid;
+  place-items: stretch;
+  touch-action: manipulation;
 }
 
 .app {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  height: 100dvh;
   min-height: 100dvh;
   display: grid;
-  grid-template-rows: 1fr auto auto auto;
+  grid-template-rows: minmax(0, 1fr) auto auto minmax(62px, 1fr) auto;
   padding: max(8px, env(safe-area-inset-top)) 14px max(8px, env(safe-area-inset-bottom));
+  overflow: hidden;
 }
 
 .display-wrap {
   display: grid;
-  place-items: center;
-  padding-top: 8px;
+  align-content: center;
+  justify-items: center;
+  padding-top: clamp(12px, 4vh, 34px);
 }
 
 .time-display {
@@ -63,19 +74,21 @@ body {
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 14px;
-  margin-top: 8px;
-  margin-bottom: 12px;
+  margin-top: 2px;
+  margin-bottom: 10px;
 }
 
 .round-button {
-  width: 114px;
-  height: 114px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   border: 0;
   color: #ececf2;
-  font-size: clamp(1.55rem, 4.8vw, 1.95rem);
+  font-size: 2rem;
   font-weight: 600;
   justify-self: center;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .round-gray {
@@ -101,17 +114,22 @@ body {
 }
 
 .center-dots span {
-  width: 11px;
-  height: 11px;
+  width: 9px;
+  height: 9px;
   border-radius: 999px;
   background: #ececf0;
 }
 
 .laps-wrap {
-  border-top: 1px solid var(--separator);
-  border-bottom: 1px solid var(--separator);
-  min-height: 40px;
+  height: 118px;
   overflow: auto;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+
+.app.has-laps .laps-wrap {
+  border-top-color: var(--separator);
+  border-bottom-color: var(--separator);
 }
 
 .laps-list {
@@ -137,7 +155,6 @@ body {
 .bottom-nav {
   display: grid;
   align-items: end;
-  padding-top: 12px;
   padding-bottom: max(2px, env(safe-area-inset-bottom));
 }
 
@@ -158,7 +175,7 @@ body {
   justify-items: center;
   gap: 2px;
   color: var(--nav-muted);
-  font-size: 0.77rem;
+  font-size: 0.69rem;
   font-weight: 600;
   line-height: 1.1;
   padding: 8px 4px 7px;
@@ -173,8 +190,8 @@ body {
 }
 
 .nav-icon {
-  width: 21px;
-  height: 21px;
+  width: 20px;
+  height: 20px;
   fill: none;
   stroke: currentColor;
   stroke-width: 1.9;
@@ -255,26 +272,13 @@ body {
   background: #0b6fff;
 }
 
-@media (max-width: 440px) {
-  .time-display {
-    font-size: clamp(3.3rem, 15vw, 4.4rem);
+@media (min-height: 860px) {
+  .app {
+    grid-template-rows: minmax(0, 1fr) auto auto minmax(96px, 1fr) auto;
   }
 
   .round-button {
-    width: 96px;
-    height: 96px;
-  }
-
-  .laps-list li {
-    font-size: 1.03rem;
-  }
-
-  .nav-item {
-    font-size: 0.69rem;
-  }
-
-  .nav-icon {
-    width: 20px;
-    height: 20px;
+    width: 102px;
+    height: 102px;
   }
 }

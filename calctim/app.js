@@ -2,6 +2,7 @@
 const DEFAULT_SEQUENCE = [18, 26, 15];
 
 const timeDisplay = document.getElementById("timeDisplay");
+const appRoot = document.getElementById("appRoot");
 const mainButton = document.getElementById("mainButton");
 const leftButton = document.getElementById("leftButton");
 const lapsList = document.getElementById("lapsList");
@@ -28,6 +29,7 @@ renderTime();
 renderControls();
 renderLaps();
 registerServiceWorker();
+lockPortraitIfPossible();
 
 mainButton.addEventListener("click", () => {
   if (!running) {
@@ -141,6 +143,7 @@ function addLap() {
 
 function renderLaps() {
   lapsList.innerHTML = "";
+  appRoot.classList.toggle("has-laps", laps.length > 0);
 
   laps.forEach((lap) => {
     const li = document.createElement("li");
@@ -246,4 +249,14 @@ function registerServiceWorker() {
       });
     });
   }
+}
+
+function lockPortraitIfPossible() {
+  if (!screen.orientation || typeof screen.orientation.lock !== "function") {
+    return;
+  }
+
+  screen.orientation.lock("portrait").catch(() => {
+    // Some browsers only allow lock in installed/fullscreen contexts.
+  });
 }

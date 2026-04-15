@@ -1,8 +1,11 @@
 ﻿{
   "name": "calctim",
   "short_name": "calctim",
+  "id": "./",
+  "scope": "./",
   "start_url": "./index.html",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#000000",
   "theme_color": "#000000",
   "lang": "ru",
