@@ -10,6 +10,15 @@
   box-sizing: border-box;
 }
 
+button,
+input,
+textarea,
+select,
+a,
+.nav-item {
+  -webkit-tap-highlight-color: transparent;
+}
+
 html,
 body {
   margin: 0;
@@ -27,8 +36,8 @@ body {
 .app {
   min-height: 100dvh;
   display: grid;
-  grid-template-rows: auto 1fr auto;
-  padding: max(12px, env(safe-area-inset-top)) 16px max(20px, env(safe-area-inset-bottom));
+  grid-template-rows: auto 1fr auto auto;
+  padding: max(10px, env(safe-area-inset-top)) 12px max(8px, env(safe-area-inset-bottom));
 }
 
 .top-bar {
@@ -58,6 +67,8 @@ body {
   padding: 2px 8px;
   cursor: pointer;
   color: var(--text);
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .popup-menu {
@@ -81,6 +92,8 @@ body {
   border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .popup-item:hover {
@@ -93,32 +106,46 @@ body {
 }
 
 .time-display {
-  font-size: clamp(2.5rem, 12vw, 4rem);
+  font-size: clamp(2.35rem, 11.4vw, 3.7rem);
   letter-spacing: 0.05em;
   font-variant-numeric: tabular-nums;
+  font-weight: 500;
 }
 
 .controls {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  max-width: 460px;
+  gap: 18px;
+  max-width: 370px;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 12px;
 }
 
 .btn {
   border: 0;
   border-radius: 999px;
-  padding: 14px 18px;
-  font-size: 1.1rem;
+  padding: 14px 20px;
+  font-size: 1.05rem;
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.15s ease, opacity 0.15s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  outline: none;
+  -webkit-touch-callout: none;
 }
 
 .btn:active {
   transform: translateY(1px);
+}
+
+.btn:focus,
+.btn:focus-visible,
+.menu-btn:focus,
+.menu-btn:focus-visible,
+.popup-item:focus,
+.popup-item:focus-visible {
+  outline: none;
 }
 
 .btn:disabled {
@@ -188,4 +215,48 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
+}
+
+.bottom-nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  align-items: end;
+  text-align: center;
+  border-top: 1px solid #e7e8ed;
+  padding: 6px 2px 0;
+}
+
+.nav-item {
+  display: grid;
+  justify-items: center;
+  gap: 3px;
+  color: #8b9099;
+  font-size: 0.78rem;
+  line-height: 1.1;
+  padding: 4px 0 8px;
+  position: relative;
+}
+
+.nav-item svg {
+  width: 19px;
+  height: 19px;
+  fill: currentColor;
+}
+
+.nav-item.active {
+  color: #1f232b;
+  font-weight: 500;
+}
+
+.nav-item.active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 36px;
+  height: 2px;
+  transform: translateX(-50%);
+  border-radius: 99px;
+  background: #1f232b;
 }
