@@ -2,9 +2,9 @@
   --bg: #000;
   --text: #fff;
   --separator: #17181f;
-  --nav-pill: #14151c;
-  --nav-muted: #a6a8b1;
-  --active-fill: #3a3a3f;
+  --nav-pill: #2d2e33;
+  --nav-muted: #f2f3f7;
+  --active-fill: #6c6d73;
   --active-text: #f5b351;
   --start: #003e1f;
   --start-text: #24da72;
@@ -138,26 +138,33 @@ body {
   display: grid;
   align-items: end;
   padding-top: 12px;
+  padding-bottom: max(2px, env(safe-area-inset-bottom));
 }
 
 .nav-pill {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 4px;
+  gap: 2px;
   background: var(--nav-pill);
+  border: 1px solid #3b3d44;
   border-radius: 22px;
-  padding: 6px 6px 8px;
+  width: min(100%, 355px);
+  margin: 0 auto;
+  padding: 4px;
 }
 
 .nav-item {
   display: grid;
   justify-items: center;
-  gap: 3px;
+  gap: 2px;
   color: var(--nav-muted);
-  font-size: 0.83rem;
+  font-size: 0.77rem;
+  font-weight: 600;
   line-height: 1.1;
-  padding: 7px 6px;
+  padding: 8px 4px 7px;
   border-radius: 17px;
+  white-space: nowrap;
+  opacity: 0.95;
 }
 
 .nav-button {
@@ -165,16 +172,21 @@ body {
   background: transparent;
 }
 
-.nav-item svg {
-  width: 24px;
-  height: 24px;
-  fill: currentColor;
+.nav-icon {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .nav-item.active {
   background: var(--active-fill);
   color: var(--active-text);
-  font-weight: 600;
+  font-weight: 700;
+  opacity: 1;
 }
 
 .settings-dialog {
@@ -258,6 +270,11 @@ body {
   }
 
   .nav-item {
-    font-size: 0.74rem;
+    font-size: 0.69rem;
+  }
+
+  .nav-icon {
+    width: 20px;
+    height: 20px;
   }
 }
