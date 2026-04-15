@@ -1,4 +1,4 @@
-﻿const CACHE_NAME = "stopwatch-pwa-v1";
+﻿const CACHE_NAME = "stopwatch-pwa-v2";
 const ASSETS = [
   "./",
   "./index.html",
@@ -29,6 +29,20 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") {
+    return;
+  }
+
+  // For page navigation, prefer fresh network HTML so updates appear promptly.
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          const cloned = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put("./index.html", cloned));
+          return response;
+        })
+        .catch(() => caches.match("./index.html"))
+    );
     return;
   }
 
