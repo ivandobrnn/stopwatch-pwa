@@ -103,6 +103,7 @@ function stop() {
   stopped = true;
   frozenHundredths = sequence[stopIndex % sequence.length];
   stopIndex += 1;
+  triggerStopHaptics();
   renderTime();
   renderControls();
 }
@@ -201,4 +202,13 @@ function registerServiceWorker() {
       });
     });
   }
+}
+
+function triggerStopHaptics() {
+  if (!("vibrate" in navigator)) {
+    return;
+  }
+
+  // A short pulse that feels like a native stopwatch stop feedback.
+  navigator.vibrate(25);
 }
