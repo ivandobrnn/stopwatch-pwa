@@ -13,6 +13,7 @@ const sequenceInput = document.getElementById("sequenceInput");
 const currentSequence = document.getElementById("currentSequence");
 const settingsError = document.getElementById("settingsError");
 const cancelSettings = document.getElementById("cancelSettings");
+const timerButton = document.getElementById("timerButton");
 
 let running = false;
 let elapsedMs = 0;
@@ -37,6 +38,7 @@ mainButton.addEventListener("click", () => {
 });
 
 resetButton.addEventListener("click", reset);
+timerButton.addEventListener("click", resetSequenceOrder);
 
 menuButton.addEventListener("click", () => {
   popupMenu.hidden = !popupMenu.hidden;
@@ -116,9 +118,12 @@ function reset() {
   startedAt = 0;
   stopped = false;
   frozenHundredths = null;
-  stopIndex = 0;
   renderTime();
   renderControls();
+}
+
+function resetSequenceOrder() {
+  stopIndex = 0;
 }
 
 function tick() {
