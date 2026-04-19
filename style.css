@@ -104,7 +104,7 @@ body {
   display: grid;
   align-content: start;
   justify-items: center;
-  padding-top: clamp(170px, 29vh, 300px);
+  padding-top: clamp(88px, 17vh, 170px);
 }
 
 .time-display {
