@@ -139,12 +139,15 @@ function renderControls() {
   if (running) {
     mainButton.textContent = "Стоп";
     mainButton.classList.add("danger");
+    resetButton.textContent = "Интервал";
   } else if (elapsedMs > 0) {
     mainButton.textContent = "Продолж.";
     mainButton.classList.remove("danger");
+    resetButton.textContent = "Сбросить";
   } else {
     mainButton.textContent = "Начать";
     mainButton.classList.remove("danger");
+    resetButton.textContent = "Интервал";
   }
 
   resetButton.disabled = running || elapsedMs === 0;

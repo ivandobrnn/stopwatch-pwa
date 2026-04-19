@@ -102,30 +102,32 @@ body {
 
 .display-wrap {
   display: grid;
-  place-items: center;
+  align-content: start;
+  justify-items: center;
+  padding-top: clamp(170px, 29vh, 300px);
 }
 
 .time-display {
-  font-size: clamp(2.35rem, 11.4vw, 3.7rem);
-  letter-spacing: 0.05em;
+  font-size: clamp(2.7rem, 12.4vw, 4.1rem);
+  letter-spacing: 0.045em;
   font-variant-numeric: tabular-nums;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .controls {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 18px;
-  max-width: 370px;
+  gap: 20px;
+  max-width: 380px;
   width: 100%;
-  margin: 0 auto 12px;
+  margin: 0 auto 16px;
 }
 
 .btn {
   border: 0;
   border-radius: 999px;
   padding: 14px 20px;
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.15s ease, opacity 0.15s ease;
@@ -223,40 +225,27 @@ body {
   gap: 0;
   align-items: end;
   text-align: center;
-  border-top: 1px solid #e7e8ed;
-  padding: 6px 2px 0;
+  padding: 8px 2px 0;
 }
 
 .nav-item {
   display: grid;
   justify-items: center;
-  gap: 3px;
+  gap: 4px;
   color: #8b9099;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   line-height: 1.1;
-  padding: 4px 0 8px;
+  padding: 4px 0 10px;
   position: relative;
 }
 
 .nav-item svg {
-  width: 19px;
-  height: 19px;
+  width: 22px;
+  height: 22px;
   fill: currentColor;
 }
 
 .nav-item.active {
   color: #1f232b;
-  font-weight: 500;
-}
-
-.nav-item.active::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 36px;
-  height: 2px;
-  transform: translateX(-50%);
-  border-radius: 99px;
-  background: #1f232b;
+  font-weight: 700;
 }
