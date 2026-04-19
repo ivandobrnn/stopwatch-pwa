@@ -111,6 +111,12 @@ function stop() {
 }
 
 function reset() {
+  clearTimerOnly();
+  renderTime();
+  renderControls();
+}
+
+function clearTimerOnly() {
   clearInterval(timerId);
   timerId = null;
   running = false;
@@ -118,8 +124,6 @@ function reset() {
   startedAt = 0;
   stopped = false;
   frozenHundredths = null;
-  renderTime();
-  renderControls();
 }
 
 function resetSequenceOrder() {

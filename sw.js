@@ -1,4 +1,4 @@
-﻿const CACHE_NAME = "stopwatch-pwa-v3";
+﻿const CACHE_NAME = "stopwatch-pwa-v4";
 const ASSETS = [
   "./",
   "./index.html",
@@ -62,4 +62,5 @@ self.addEventListener("fetch", (event) => {
     })
   );
 });
+
 
