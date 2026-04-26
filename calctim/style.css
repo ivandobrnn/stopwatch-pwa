@@ -85,8 +85,12 @@ body {
   border-radius: 50%;
   border: 0;
   color: #ececf2;
-  font-size: 2rem;
+  font-size: clamp(1.05rem, 4.4vw, 1.5rem);
   font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
   justify-self: center;
   user-select: none;
   -webkit-user-select: none;
