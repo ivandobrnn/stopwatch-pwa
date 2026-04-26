@@ -1,4 +1,4 @@
-﻿const CACHE_NAME = "calctim-pwa-v4";
+﻿const CACHE_NAME = "calctim-pwa-v5";
 const ASSETS = [
   "./",
   "./index.html",
@@ -61,6 +61,7 @@ self.addEventListener("fetch", (event) => {
     })
   );
 });
+
 
 
 

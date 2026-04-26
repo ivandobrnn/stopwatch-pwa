@@ -52,7 +52,7 @@ body {
   min-height: 100svh;
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto auto auto;
-  padding: max(8px, env(safe-area-inset-top)) 14px env(safe-area-inset-bottom);
+  padding: max(8px, env(safe-area-inset-top)) 14px 120px;
   overflow: hidden;
 }
 
@@ -154,10 +154,13 @@ body {
 }
 
 .bottom-nav {
-  display: grid;
-  align-items: end;
-  margin-top: auto;
-  padding-bottom: 0;
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: min(100%, 430px);
+  padding: 0 14px 0;
+  z-index: 10;
 }
 
 .nav-pill {
