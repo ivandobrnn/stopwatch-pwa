@@ -64,7 +64,7 @@ body {
 }
 
 .time-display {
-  font-size: clamp(4rem, 15vw, 5.3rem);
+  font-size: clamp(4.5rem, 16.8vw, 6.2rem);
   font-weight: 300;
   letter-spacing: 0.02em;
   font-variant-numeric: tabular-nums;
@@ -156,7 +156,7 @@ body {
 .bottom-nav {
   position: fixed;
   left: 50%;
-  bottom: 0;
+  bottom: max(-8px, calc(env(safe-area-inset-bottom) * -0.2));
   transform: translateX(-50%);
   width: min(100%, 430px);
   padding: 0 14px 0;
