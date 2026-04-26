@@ -47,10 +47,11 @@ body {
   width: 100%;
   max-width: 430px;
   margin: 0 auto;
-  height: 100dvh;
-  min-height: 100dvh;
+  height: 100vh;
+  height: 100svh;
+  min-height: 100svh;
   display: grid;
-  grid-template-rows: minmax(0, 1fr) auto auto minmax(62px, 1fr) auto;
+  grid-template-rows: minmax(0, 1fr) auto auto auto;
   padding: max(8px, env(safe-area-inset-top)) 14px max(8px, env(safe-area-inset-bottom));
   overflow: hidden;
 }
@@ -155,6 +156,7 @@ body {
 .bottom-nav {
   display: grid;
   align-items: end;
+  margin-top: auto;
   padding-bottom: max(2px, env(safe-area-inset-bottom));
 }
 
@@ -273,10 +275,6 @@ body {
 }
 
 @media (min-height: 860px) {
-  .app {
-    grid-template-rows: minmax(0, 1fr) auto auto minmax(96px, 1fr) auto;
-  }
-
   .round-button {
     width: 102px;
     height: 102px;
